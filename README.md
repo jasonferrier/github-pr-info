@@ -8,3 +8,8 @@ Utilizing the Github [REST API](https://docs.github.com/en/rest), create an API 
 * For **each open PR**, return the number of commits by making multiple requests via the Github REST API.
 * Has one or more endpoints
 * Implements a testing strategy
+
+## Getting Started
+1) Install depencies: `npm install`
+2) Rename the `.env.sample` file to `.env`
+3) Start the Express server: `node app.js`
