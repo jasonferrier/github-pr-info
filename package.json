@@ -4,7 +4,17 @@
   "description": "Node API to access Github PR information",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm run prod",
+    "build": "npm-run-all clean transpile",
+    "build-dev": "npm-run-all clean transpile-dev",
+    "server": "node -r dotenv/config ./dist/server",
+    "dev": "NODE_ENV=development npm-run-all build-dev server",
+    "prod": "NODE_ENV=production npm-run-all build server",
+    "transpile": "babel ./src --out-dir dist",
+    "transpile-dev": "babel ./src --out-dir dist --source-maps",
+    "clean": "rimraf dist",
+    "watch:dev": "NODE_ENV=development nodemon --inspect=0.0.0.0",
+    "test": "jest --setupFiles dotenv/config"
   },
   "repository": {
     "type": "git",
@@ -17,7 +27,27 @@
   },
   "homepage": "https://github.com/jasonferrier/github-pr-info#readme",
   "dependencies": {
+    "@babel/cli": "^7.15.7",
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
     "dotenv": "^10.0.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.14",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "jest": "^27.3.1"
+  },
+  "nodemonConfig": {
+    "exec": "npm run dev",
+    "watch": [ "src/*", "public/*" ],
+    "ignore": [ "**/__tests__/**", "*.test.js", "*.spec.js" ] 
+  }, 
+  "babel": { 
+    "presets": [ "@babel/preset-env" ]
+  },
+  "jest": {
+    "testEnvironment": "node"
   }
 }

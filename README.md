@@ -12,4 +12,4 @@ Utilizing the Github [REST API](https://docs.github.com/en/rest), create an API 
 ## Getting Started
 1) Install depencies: `npm install`
 2) Rename the `.env.sample` file to `.env`
-3) Start the Express server: `node app.js`
+3) Start the Express server: `npm run dev`
