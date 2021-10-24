@@ -1,0 +1,23 @@
+{
+  "name": "github-pr-info",
+  "version": "1.0.0",
+  "description": "Node API to access Github PR information",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jasonferrier/github-pr-info.git"
+  },
+  "author": "Jason Ferrier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jasonferrier/github-pr-info/issues"
+  },
+  "homepage": "https://github.com/jasonferrier/github-pr-info#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
