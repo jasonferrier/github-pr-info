@@ -59,7 +59,18 @@ const fetchPaginatedData = async(url, options) => {
 
 export const openPullRequestsInfo = async (req, res) => {
   const repositoryUrl = req.query.repositoryUrl
+
+  if (!repositoryUrl) {
+    res.json({error: 'Please supply a repository Url in the query string.'})
+    return
+  }
+
   const repoInfo = getUserAndRepo(repositoryUrl)
+
+  if (!repoInfo.owner || !repoInfo.repo) {
+    res.json({error: 'Please supply a valid Github repository Url in the query string. (Hint: https://github.com/USERNAME/REPOSITORY)'})
+    return
+  }
 
   // const pullRequests = await fetchPaginatedData(`${apiBase}/repos/${repoInfo.owner}/${repoInfo.repo}/pulls?state=closed`, fetchOptions)
   const pullRequests = await fetchPaginatedData(`${apiBase}/repos/${repoInfo.owner}/${repoInfo.repo}/pulls`, fetchOptions)

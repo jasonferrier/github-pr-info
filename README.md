@@ -12,4 +12,5 @@ Utilizing the Github [REST API](https://docs.github.com/en/rest), create an API 
 ## Getting Started
 1) Install depencies: `npm install`
 2) Rename the `.env.sample` file to `.env`
-3) Start the Express server: `npm run dev`
+3) Start the Express server: `npm run watch:dev`
+    *Note: This will run with nodemon and automatically restart the server when there are changes to the src/ files*
