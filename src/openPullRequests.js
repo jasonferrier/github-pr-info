@@ -80,6 +80,7 @@ export const openPullRequestsInfo = async (req, res) => {
     return
   }
 
+  // NOTE: Use the following line to test pagination since there are ~162 closed PRs on the https://github.com/colinhacks/zod repository
   // const pullRequests = await fetchPaginatedData(`${apiBase}/repos/${repoInfo.owner}/${repoInfo.repo}/pulls?state=closed`, fetchOptions)
   const pullRequests = await fetchPaginatedData(`${apiBase}/repos/${repoInfo.owner}/${repoInfo.repo}/pulls`, fetchOptions)
 
