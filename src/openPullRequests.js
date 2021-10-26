@@ -12,10 +12,18 @@ const fetchOptions = {
   }
 }
 
-const getUserAndRepo = (url) => {
+export const getUserAndRepo = (url) => {
   // This assumes a valid github URL in the format https://github.com/USERNAME/REPOSITORY
-  const owner = url.split('github.com/')[1].split('/')[0]
-  const repo = url.split('github.com/')[1].split('/')[1]
+  let owner = ''
+  let repo = ''
+
+  const splitUrlArray = url.split('github.com/')
+  if (splitUrlArray.length > 1) {
+    const path = splitUrlArray[1]
+    const splitPathArray = path.split('/')
+    owner = splitPathArray.length > 0 ? splitPathArray[0] : ''
+    repo = splitPathArray.length > 1 ? splitPathArray[1] : ''
+  }
 
   return {
     owner: owner,
