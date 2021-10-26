@@ -1,5 +1,15 @@
 # github-pr-info
-Node API to access Github PR information
+Node API to access Github PR information.
+JSON data is returned from the endpoint with a subset of key/value pairs than the Github REST API returns for each Pull Request (to reduce the amount of data sent back to the client):
+* `number` - Pull Request Number
+* `title
+* `body`
+* `commits` - number of commits associated to the PR
+* `commits_url` - API URL for all data associated with each commit
+* `url` - URL for viewing the Pull Request in the browser in HTML format
+* `created_at` - Timestamp of Pull Request creation
+* `updated_at` - Timestamp of Pull Request latest update
+
 ## Requirements
 Utilizing the Github [REST API](https://docs.github.com/en/rest), create an API that:
 
