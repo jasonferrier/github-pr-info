@@ -2,7 +2,7 @@
 Node API to access Github PR information.
 JSON data is returned from the endpoint with a subset of key/value pairs than the Github REST API returns for each Pull Request (to reduce the amount of data sent back to the client):
 * `number` - Pull Request Number
-* `title
+* `title`
 * `body`
 * `commits` - number of commits associated to the PR
 * `commits_url` - API URL for all data associated with each commit
